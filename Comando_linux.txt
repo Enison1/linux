@@ -1,0 +1,16 @@
+pwd - o diretorio atual
+ls - lista os itens dentro de um diretorio
+	@ ls -l == lista os itens com detalhes.
+	@ ls -la == lista os itens com detalhes até os escondidos.
+echo - mostra msg no terminal
+	@ echo "oii" > oi.txt == cria um arq com a msg (oii).
+	@ echo "Tudo bem" >> oi.txt == concatena com o arq msg.
+cat - ler um arq
+clear - limpa tela
+man - ensina o manual do proximo comando.
+cd - vai para o diretorio pai
+	@ cd workspace == entra no diretorio workspace.
+	@ cd .. == volta ao diretorio anterior.
+ps - mostra todos os programas roando
+kill - finaliza o programa
+	@ -9 não da chance 
