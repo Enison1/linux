@@ -1,16 +1,102 @@
 pwd - o diretorio atual
+whoami - mostra o usuario atual
 ls - lista os itens dentro de um diretorio
 	@ ls -l == lista os itens com detalhes.
 	@ ls -la == lista os itens com detalhes até os escondidos.
+	@ ls / == é o diretorio raiz do linux
+	@ ls /home == mostra os usuarios do linux
+	@ ls * == lista os itens e sub itens do diretorio atual
 echo - mostra msg no terminal
 	@ echo "oii" > oi.txt == cria um arq com a msg (oii).
 	@ echo "Tudo bem" >> oi.txt == concatena com o arq msg.
 cat - ler um arq
+	@ cat nome?.txt == abre os arqs que só tenha uma casa númerica
+	@ cat nome*.txt == abre os arqs que tenha casas númericas.
+	@ cat *.txt == abre os arqs txt.
 clear - limpa tela
 man - ensina o manual do proximo comando.
 cd - vai para o diretorio pai
 	@ cd workspace == entra no diretorio workspace.
 	@ cd .. == volta ao diretorio anterior.
+mkdir - cria diretorios
+rmdir - apaga diretorios vazios
+rm - apaga arq
+	@ rm -r == apaga diretorios com conteudos
+cp - copia o conteudo de um arq para outro (cp msg.txt bv.txt)
+	@ cp -r == copia diretorios (cp -r pro-php pro-java)
+mv - pode renomear um arq (mv msg.txt bv2.txt) // tbm pode mover o arq para outro local (mv bv.txt pro-php/)
+zip -r - zipa um diretorio (zip work.zip workspace/)
+	@ unzip -rq == faz a copactação sem apresentar info
+unzip - descompacta um zip (unzip work.zip)
+	@ unzip -l == lista os arq do zip sem descompactar (unzip -l work.zip)
+	@ unzip -q == faz a descopactação sem apresentar info
+tar -cz - zipa em formato TAR.gz (tar -cz workspace > work.tar.gz)
+	@ tar -xz < work.tar.gz == descompacta arq TAR
+	@ tar -czf work.tar.gz workspace == cria arq TAR
+	@ tar -xzf work.tar.gz == descompacta arq TAR
+	@ tar -xxzf work.tar.gz == descompacta arq TAR e mostra info
+touch - muda a ultima modificação do arq sem modificar o arq
+date - mostra a date do sistema
+head - mostra só as primeiras 10 linha de um arq (head google.txt)
+	@ head -n 3 google == mostra só as primeiras 3 linhas do arq
+tail - mostra só as ultimas 10 linha de um arq (tail google.txt)
+	@ tail -n 3 google == mostra só as ultimas 3 linhas do arq
+less - abre o arq no terminal para leitura (less google.txt)
+vi - editor de texto no terminal (vi google.txt)
+	@ i - digita na pos. atual
+	@ a - digita na pos. seguinte
+	@ A - digita na ultima pos. da linha
+	@ x - apaga o caracter na pos. atual // 11x - apaga 11 caracteres
+	@ dd - remove a linha por completo // 11dd - rmove 11 linhas
+	@ esc - sai do modo de edição
+	@ :w - salva as alterações no arq
+	@ :q - fecha o arq
+	@ :q! - sair sem salvar
+	@ :wq - salva e sair
+	@ G - vai para ultima linha // 0G - vai para a primeira linha
+	@ $ - vai para o fim da linha atual
+	@ / - procura palavras digitadas // n - vai para a proxima // N - retrocede na pesquisa
+	@ yy - copia a linha // 11yy - copia 11 linhas
+	@ p - cola a linha // 11p - cola 11 vezes a linha
 ps - mostra todos os programas roando
-kill - finaliza o programa
-	@ -9 não da chance 
+	@ ps -e == mostra todos os programs rodando no sistema
+	@ ps -ef == mostra todos os programs rodando no sistema com detalhes
+	@ ps -ef | grep firefox == (filtra por nome os programas rodados)
+	@ pstree == mostra a arvore do sistema
+| grep == faz um filtro por nome (cat google.txt | grep california)
+kill - finaliza o programa (kill 1155 == mata pelo id e ainda da chance de recuperar)
+	@ kill -9 == não da chance, só finaliza
+	@ killall -9 top == mata tudo com o nome top sem dó
+top - mostra o consumo do sistema por cpu
+firefox - abre o programa firefox e trava o terminal // firefox & == abre e joga para backgroud sem travar o terminal
+	@ Ctrol + z == para o programa
+	@ Ctrol + c == fecha o programa
+jobs - mostra quais programas rodando
+bg - coloca um programa para rodar em backgroud
+fg - coloca um programa para rodar fora do backgroud (no terminal)
+gedit dorme & - cria um script e abre o editor dele
+sh - executa um programa (sh dorme)
+PERMISSÃO (R = leitura, W = escrita, X - execução)[dono, grupro, outros usuario]
+chmod +rwx - muda a permissão de execução do arq (chmod +x dorme)
+chmod -rwx - muda a permissão de execução do arq (chmod -x dorme)
+./dorm - executa um script com a permição do arq
+locate - faz uma busca geral dentro do sistema em busca de uma correspondecia
+updatedb - atualiza os dados do sistema
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
