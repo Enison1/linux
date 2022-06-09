@@ -79,9 +79,46 @@ sh - executa um programa (sh dorme)
 PERMISSÃO (R = leitura, W = escrita, X - execução)[dono, grupro, outros usuario]
 chmod +rwx - muda a permissão de execução do arq (chmod +x dorme)
 chmod -rwx - muda a permissão de execução do arq (chmod -x dorme)
+	@ chmod u-rx jose == tira a permissão de outros usuarios para ler e executar no meu usuario atual
+	@ chmod g-rx jose tira a permissão do grupo
+	@ chmod g-rx jose tira a permissão de outros usuarios
 ./dorm - executa um script com a permição do arq
 locate - faz uma busca geral dentro do sistema em busca de uma correspondecia
 updatedb - atualiza os dados do sistema
+whict - procura diretorios com o nome passado (which firefox)
+passwd - muda a senha do usuario
+su - loga com o nuvo usuario
+adduser - cria usuarios(sudo adduser nico)
+env - mostra todas as variaves do programa
+PATH - SÃO AS VARIAVES LOCAIS DO PC AO INICIAR PROGRAMAS
+	@ PATH=$PATH:/home/enison/workspace (adicina uma pasta para a inicialização dos programas)
+wc - conta palavras e linhas dos arq
+	@ wc -w == contas somente as palavras dos arq especificados
+	@ wc -c == contas somente os caracteres dos arq especificados
+	@ wc -l == contas somente as linhas dos arq especificados
+
+PS1 - aultera o nome do identificador inicial da linha (PS1="Enison>")
+yum search - pesquisa o programa que vc quer (yum search ftp)
+yum install - instala o programa que vc quer (sudo yum instal ftp)
+yum remove - remove o programa que vc quer (sudo yum instal ftp)
+sudo yum update - atualiza a lista de opção de instalação
+dpkg - instala programas baixados por fora
+	@ dpkg -i == instala
+	@ dpkg -r == remove
+yum -f == instal corrige os erros de instalação
+service ____ stop/start == finaliza um programa de leve.
+./ - roda o programa que vc pdeiu (./oi)
+make - testa para ver se ta tudo certo para a instalação
+	@ make install - instala o programa baixado via codigo fonte
+
+
+
+
+
+
+
+
+
 
 
 
