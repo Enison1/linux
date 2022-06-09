@@ -99,8 +99,8 @@ wc - conta palavras e linhas dos arq
 
 PS1 - aultera o nome do identificador inicial da linha (PS1="Enison>")
 yum search - pesquisa o programa que vc quer (yum search ftp)
-yum install - instala o programa que vc quer (sudo yum instal ftp)
-yum remove - remove o programa que vc quer (sudo yum instal ftp)
+sudo yum install - instala o programa que vc quer (sudo yum instal ftp)
+sudo yum remove - remove o programa que vc quer (sudo yum instal ftp)
 sudo yum update - atualiza a lista de opção de instalação
 dpkg - instala programas baixados por fora
 	@ dpkg -i == instala
@@ -110,8 +110,18 @@ service ____ stop/start == finaliza um programa de leve.
 ./ - roda o programa que vc pdeiu (./oi)
 make - testa para ver se ta tudo certo para a instalação
 	@ make install - instala o programa baixado via codigo fonte
-
-
+sudo yum install --only-upgrade ftp == atualiza somente o programa escolhido
+sudo yum list --installed == lista todos os programas instalados na maquina
+	@ yum --qa == ista todos os programas instalados na maquina
+	@ yum -e == remove um program desejado (yum -e linx)
+nmcli d - mostra as placas conectada no pc
+nmtui - abra as opções de edição das placas
+systemctl restart network == sereta a rede de internet
+ping == mostra se o servidor esta ativo
+	@ Ctl + z == para o ping
+yum info == traz informações sobre um programa especifico (yum info mariadb)
+yum makecache = faz o cacheamento dos dados da maquina forçado
+cat /etc/yum == mostra os arq do yum
 
 
 
