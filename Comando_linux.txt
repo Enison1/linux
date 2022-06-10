@@ -98,6 +98,7 @@ wc - conta palavras e linhas dos arq
 	@ wc -l == contas somente as linhas dos arq especificados
 
 PS1 - aultera o nome do identificador inicial da linha (PS1="Enison>")
+PS2 - é o indicador de nova linha ( > )
 yum search - pesquisa o programa que vc quer (yum search ftp)
 sudo yum install - instala o programa que vc quer (sudo yum instal ftp)
 sudo yum remove - remove o programa que vc quer (sudo yum instal ftp)
@@ -122,6 +123,42 @@ ping == mostra se o servidor esta ativo
 yum info == traz informações sobre um programa especifico (yum info mariadb)
 yum makecache = faz o cacheamento dos dados da maquina forçado
 cat /etc/yum == mostra os arq do yum
+type == mostra o tipo de comando (type ls)
+criar uma variavel no shell (nome=Enison)
+imprimir uma variavel (echo $nome)
+\u - usuario
+\w - diretorio
+\: - hora local
+
+** Criar uma script **
+== vi nome.sh 
+presiona (" i ");
+echo "olá"
+presiona (" esc ", " :wq ");
+adiciona permição de execussão: chmod +x nome.sh
+roda o script ./nome.sh
+** fim escrever script **
+
+
+** exportar variaveis para fora do shell **
+
+export nome_variavel
+
+** fim exportação **
+
+env - cria um novo ambiente filho dentro do pai se for passado como algum parametro temporario
+as variaveis devem ser ecritas em maiusculas
+as variaveis não devem ter espaços entre seu nome/ caso necessario deve ser usado o _
+${}-define uma variavel dentro de um texto ou script
+
+unset - remove as variaveis do shel e // export -n == remove a variavel do ambiente
+
+$EDITOR = varial que armazena a preferencia do editor padrão
+/src/bin/vi - abre o vi
+/bin/nano - abre o nano
+nome_programa init - inicializa o programa
+
+
 
 
 
