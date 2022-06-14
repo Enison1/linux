@@ -10,11 +10,23 @@ echo - mostra msg no terminal
 	@ echo "oii" > oi.txt == cria um arq com a msg (oii).
 	@ echo "Tudo bem" >> oi.txt == concatena com o arq msg.
 cat - ler um arq
+	@ \ - quebra a linha para pesquisa e desativa o proximo comando
 	@ cat nome?.txt == abre os arqs que só tenha uma casa númerica
 	@ cat nome*.txt == abre os arqs que tenha casas númericas.
 	@ cat *.txt == abre os arqs txt.
+	@ cat nome_arq[123] soomente os que possouam 1 e 2 e 3
+		**/[12] somante os que possuam 1 e 2
+		**/[1-3] somante os que possuam 1 a 3 
+		**/[0-9].txt somante os que possuam 0 a 9
+		**/[a-z].txt somante os que possuam letras a a z
+		**/[A-Z].txt somante os que possuam letras A a Z
+		**/[!0-9].txt somante os que não possuam 0 a 9
+		**/{text*, text2*}.txt somante os que possuam os nomes especificados
 clear - limpa tela
 man - ensina o manual do proximo comando.
+	@ man -k == tras correspondencia entre as palavras buscadas
+	@ man ls => /-l == pesquisa dentro do manual o parametro -l(n - proximo aparição)
+info - traz informações dos camandos
 cd - vai para o diretorio pai
 	@ cd workspace == entra no diretorio workspace.
 	@ cd .. == volta ao diretorio anterior.
@@ -84,6 +96,7 @@ chmod -rwx - muda a permissão de execução do arq (chmod -x dorme)
 	@ chmod g-rx jose tira a permissão de outros usuarios
 ./dorm - executa um script com a permição do arq
 locate - faz uma busca geral dentro do sistema em busca de uma correspondecia
+	@ locate -e == mostra um lista sem os arq apagados
 updatedb - atualiza os dados do sistema
 whict - procura diretorios com o nome passado (which firefox)
 passwd - muda a senha do usuario
@@ -124,6 +137,8 @@ yum info == traz informações sobre um programa especifico (yum info mariadb)
 yum makecache = faz o cacheamento dos dados da maquina forçado
 cat /etc/yum == mostra os arq do yum
 type == mostra o tipo de comando (type ls)
+	@ type -a  == mostra todos os programas com o msm nome
+
 criar uma variavel no shell (nome=Enison)
 imprimir uma variavel (echo $nome)
 \u - usuario
@@ -157,17 +172,41 @@ $EDITOR = varial que armazena a preferencia do editor padrão
 /src/bin/vi - abre o vi
 /bin/nano - abre o nano
 nome_programa init - inicializa o programa
+-------------- COMANDOS DE NAVEGAÇÃO NO TERMINAL-------
+home(Ctrl + A) e end(Ctrl + E) - normal
+Ctrl + T - troca as duas ultimas letras digitadas
+Ctrl + L - limpa tela
+Ctrl + C - cancela o comando atual
+Ctrl + D - Finaliza o programa ativo
+set -o emacs - é o padrão para navegação no terminal
+set -o vi - é o padrão para navegação no terminal do modo VI
+help set - ajuda com os modos de navegação do terminal
+history - mostra u historico de comandos usados
+	@ history 5 - mostra os 5 ultimos comandos.
+	@ history -c - limpa o historico dos comandos.
+	@ echo $HISTFILE - mostra onde é o arq que guarda o historico de comandos
+	@ Ctrl + R - pesquisa inversa nos comandos.
+echo $PATH - mostra onde os terminal vai procurar os comandos
+hash -d = apaga o cache de um programa especifico
+hash -r = apaga todos os caches do sistema
+PATH=$PATH:/home/enison - adiciona o meu diretorio na lista de programas executaveis direto
+PATH=/home/enison:$PATH = coloca o meu diretorio na frente de todos na lista de procura de programas
+which zip - mostra qual programa ele vai executar
+	@ which -a = mostra somante programas com o nome pesquisados
+whereis - mostra todos os diretorios que tenhão os programas pesquisados
+builtin - programas padrão do terminal
+tab + tab - mostra todos os comandos que iniciam com as letras pesquisadas
+-------- CARACTER ESPECIAIS ---------
+; - separa comandos na msm linha
+* - coringa de pesquisa
+--------------------------------------
 
-
-
-
-
-
-
-
-
-
-
+echo $? - me diz se o ultimo comando foi execultado corretamente (padrão 0 - deu certo)
+&& ; || = modos de condição para executar programas
+Exit 0 - faz um programa ter saida 0(dentro do script)
+help, --help, -h, -? === ajuda com insformações do comando
+man - 
+man -k == busca tudo sobre a palavra pesquisada.
 
 
 
