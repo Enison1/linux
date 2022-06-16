@@ -2,10 +2,19 @@ pwd - o diretorio atual
 whoami - mostra o usuario atual
 ls - lista os itens dentro de um diretorio
 	@ ls -l == lista os itens com detalhes.
+	@ /bin/ls -F == lista os itens com detalhes e caracter para diferenciar diretorio/executavel/pacote/links.
 	@ ls -la == lista os itens com detalhes até os escondidos.
 	@ ls / == é o diretorio raiz do linux
 	@ ls /home == mostra os usuarios do linux
 	@ ls * == lista os itens e sub itens do diretorio atual
+	@ ls -r == lista os itens em ordem reversa.
+	@ ls -p == lista os diretorios com /.
+	@ ls -i == mostra a informação desses nós..
+	@ ls -S == lista por tamanho.
+	@ ls -T == lista por tempo.
+	@ ls -X == lista por extenção.
+	@ ls -R == lista por diretorios recursivos.
+	@ ls -ld /etc == tras info da pasta especificada
 echo - mostra msg no terminal
 	@ echo "oii" > oi.txt == cria um arq com a msg (oii).
 	@ echo "Tudo bem" >> oi.txt == concatena com o arq msg.
@@ -30,12 +39,22 @@ info - traz informações dos camandos
 cd - vai para o diretorio pai
 	@ cd workspace == entra no diretorio workspace.
 	@ cd .. == volta ao diretorio anterior.
+	@ cd - == volta ao diretorio que vc estava antes.
 mkdir - cria diretorios
+	@ mkdir -p == faz a criação dos diretorios mencionados.
+	@ mkdir -p fotos/201{1,2,3,4,5}/trimestre{1,2,3,4 }== faz a criação dos diretorios mencionados.
 rmdir - apaga diretorios vazios
+	@ rmdir -p == apaga diretorios vazios recursivo
 rm - apaga arq
 	@ rm -r == apaga diretorios com conteudos
 cp - copia o conteudo de um arq para outro (cp msg.txt bv.txt)
 	@ cp -r == copia diretorios (cp -r pro-php pro-java)
+	@ cp -u == copia diretorios que tiverem modificações.
+	@ cp -f == copia arq e faz com força se tiver conflito
+	@ cp -b == copia arq e faz backup se tiver conflito
+	@ cp -v == copia diretorios e traz info
+	@ cp -i == copia diretorios e pergunta se é para sobrescrever se tiver arq com msm nome
+	@ cp workspace/oi.txt work/oi.txt ola/ == copia os arq para o diretorio pedido
 mv - pode renomear um arq (mv msg.txt bv2.txt) // tbm pode mover o arq para outro local (mv bv.txt pro-php/)
 zip -r - zipa um diretorio (zip work.zip workspace/)
 	@ unzip -rq == faz a copactação sem apresentar info
@@ -43,11 +62,20 @@ unzip - descompacta um zip (unzip work.zip)
 	@ unzip -l == lista os arq do zip sem descompactar (unzip -l work.zip)
 	@ unzip -q == faz a descopactação sem apresentar info
 tar -cz - zipa em formato TAR.gz (tar -cz workspace > work.tar.gz)
+	@ tar -cf loja.tar *== cria um arq tar cm os arq do diretorio atual
+	@ tar -tl loja.tar == mostra tudo o que tem o arq tar.
 	@ tar -xz < work.tar.gz == descompacta arq TAR
 	@ tar -czf work.tar.gz workspace == cria arq TAR
 	@ tar -xzf work.tar.gz == descompacta arq TAR
 	@ tar -xxzf work.tar.gz == descompacta arq TAR e mostra info
+gzip - compaquita arq gz
+	@ gzip -d oi.txt.tar.gz == descompaquita arq
+	@ gzip -l oi.txt.tar.gs == lista com detalhes o que aconteceu durante o zip
 touch - muda a ultima modificação do arq sem modificar o arq
+	@ touch oi.txt == cria o arq oi.txt sem abrir o editor
+	@ touch -c oi.txt == não cria o arq oi.txt
+	@ touch -m oi.txt == altera só a data de modificação
+	@ touch -a oi.txt == altera só a data de acesso
 date - mostra a date do sistema
 head - mostra só as primeiras 10 linha de um arq (head google.txt)
 	@ head -n 3 google == mostra só as primeiras 3 linhas do arq
@@ -207,6 +235,25 @@ Exit 0 - faz um programa ter saida 0(dentro do script)
 help, --help, -h, -? === ajuda com insformações do comando
 man - 
 man -k == busca tudo sobre a palavra pesquisada.
+----------- DIRETORIOS ----------------
+/ - diretorio raiz
+00 - saida nula
+find - procura arq ou diretorio nocaminha=o passado
+	@ find -name "g-2016*" == procura algo com nome que começe com G e termine com 2016
+	@ find -type d -name "*user*" == busca somente diretorios com esses nome no meio
+	@ find -type f -name "*user*" == busca somente arq com esses nome no meio
+	@ find -atime -7 == busca somente diretorios/ arq que foram acessados nos ultimos 7 dias
+	@ find -mtime -7 == busca somente diretorios/ arq que foram modificados nos ultimos 7 dias
+	@ find -ctime -7 == busca somente diretorios/ arq que foram modificados as permissões nos ultimos 7 dias
+	@ find -inum -455059 == busca quem tem esse numero com referencia no nó
+	@ find \( -Iname "*log*" -o ! -name "*2016*"\) -a -name "*16*" == faz uma busca condicional com AND(-A) e OR(-O)
+	@ find -name "*log*" -name "*2016*" -exec echo "{}" foi encontrado ";"
+wc nome_arq - conta a qtd de linhas e palavras
+	@ wc -L - tras a linha mais longa do arq.
+more - visualizador de arq de txt
+less - visualizador de arq de txt
+
+
 
 
 
