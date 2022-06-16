@@ -1,4 +1,5 @@
 pwd - o diretorio atual
+shutdown -h now == desliga a maquina
 whoami - mostra o usuario atual
 ls - lista os itens dentro de um diretorio
 	@ ls -l == lista os itens com detalhes.
@@ -18,6 +19,8 @@ ls - lista os itens dentro de um diretorio
 echo - mostra msg no terminal
 	@ echo "oii" > oi.txt == cria um arq com a msg (oii).
 	@ echo "Tudo bem" >> oi.txt == concatena com o arq msg.
+	@ echo -n == não quebra linha
+	@ echo `pwd` -- mostra o pwd
 cat - ler um arq
 	@ \ - quebra a linha para pesquisa e desativa o proximo comando
 	@ cat nome?.txt == abre os arqs que só tenha uma casa númerica
@@ -58,6 +61,7 @@ cp - copia o conteudo de um arq para outro (cp msg.txt bv.txt)
 mv - pode renomear um arq (mv msg.txt bv2.txt) // tbm pode mover o arq para outro local (mv bv.txt pro-php/)
 zip -r - zipa um diretorio (zip work.zip workspace/)
 	@ unzip -rq == faz a copactação sem apresentar info
+	@ zip -@ logs.zip < arq_a_cop.txt == faz o zip dos arq que estão listados no arq txt
 unzip - descompacta um zip (unzip work.zip)
 	@ unzip -l == lista os arq do zip sem descompactar (unzip -l work.zip)
 	@ unzip -q == faz a descopactação sem apresentar info
@@ -104,6 +108,12 @@ ps - mostra todos os programas roando
 	@ ps -ef | grep firefox == (filtra por nome os programas rodados)
 	@ pstree == mostra a arvore do sistema
 | grep == faz um filtro por nome (cat google.txt | grep california)
+	@ grep sql post.txt = tras as linhas onde sql é mencionado
+	@ grep -c sql post.txt = tras a qtd de linhas que sql é mencionado
+	@ grep -c -i sql post.txt = tras a qtd de vezes que sql é mencionado tanto faz de maiusculo ou minusculo
+	@ grep 201./[0-9] post.txt = tras as linhas que tenhão 201equalquer outro numero
+	@ grep '[[:digit:]]\+[,\.]\?[[:digit:]]*' post.txt == tras otodos os números dentro do arq 
+	@ grep -n sql post.txt = tras as linhas onde sql é mencionado e o numero da linha
 kill - finaliza o programa (kill 1155 == mata pelo id e ainda da chance de recuperar)
 	@ kill -9 == não da chance, só finaliza
 	@ killall -9 top == mata tudo com o nome top sem dó
@@ -252,18 +262,27 @@ wc nome_arq - conta a qtd de linhas e palavras
 	@ wc -L - tras a linha mais longa do arq.
 more - visualizador de arq de txt
 less - visualizador de arq de txt
-
-
-
-
-
-
-
-
-
-
-
-
+tail - visualizador de arq que mostra as ultmias 10 linhas
+	@ tail -f == faz um acompanhamento de arq especifico
+read - le uma entrada
+stdin(entrada padrão; 0>) stdout(saida padrão; 1>) stderr(saida de erro padrão; 2>)
+ls > pg.txt - lista tudo do diretorio atua em um arq txt
+| - faz um programa ser executado com a saida do programa anterior(é possivel navegar em paginas no terminal)
+cut -c 1-4 notas.pos == traz as infos do arq especifico por linha do tamanho especificado
+	@ cut -c 1-4,15-20 notas.pos == tras as info concatenadas
+	@ cut -c 1-4 --output-delimiter="," notas.pos == delimitas as info com " , "
+	@ cut -f 1 -d: /etc/passwd | sort \ less == pega o primeiro campo depois ordena e por ultimo exibe no visualidzador LESS
+	@ cut -f 1,5 -d --output-delimiter=",": notas.pos == tras as info das linhas por possição/campos e delimita os campos com " , "
+paste notas.preco notas.num == mostra o primeiro arq e depois o segundo arq ao lado do outro
+	@ paste -d: n* == concatena sem levar em consideração a ordem
+	@ paste -s n* == concatena em formato de matriz
+sort - ordena por alfabeto o arq.
+	@ sort usu - ordena o arq
+	@ sort -k 3 -t: -r == ordena pelo terceiro campo e separa por :, e em ordem reversa
+	@ sort -k 3 -t: -u ==  ordena pelo terceiro campo e separa por :, e só mostra campos unicos
+	@ sort -k 3 -t: -u -o == sobrescreve sem apagar arq 
+uniq - remove linhas repetidas em sequencia
+#!/bin/bash - faz o bash executar o programa
 
 
 
