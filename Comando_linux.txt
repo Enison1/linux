@@ -132,6 +132,12 @@ chmod -rwx - muda a permissão de execução do arq (chmod -x dorme)
 	@ chmod u-rx jose == tira a permissão de outros usuarios para ler e executar no meu usuario atual
 	@ chmod g-rx jose tira a permissão do grupo
 	@ chmod g-rx jose tira a permissão de outros usuarios
+	@ chmod u=rw,g=r,o=w nome_programa - da as permissões especificadas no comando
+	@ sudo chown zz ola.txt - troca o dono do arq txt
+	@ chmod a=rw nome_arq - muda todas as permissões para rw
+	@ chmod +t nome_diretorio - faz com que o diretorio não permita remoção de arq de outros usuarios
+	@ chmod --reference=nome_arq nome_arq_quevaireceberasmemsmaspermições
+	@ chmo 421 nome_arq - r=4, 2=w, 1=x
 ./dorm - executa um script com a permição do arq
 locate - faz uma busca geral dentro do sistema em busca de uma correspondecia
 	@ locate -e == mostra um lista sem os arq apagados
@@ -140,6 +146,7 @@ whict - procura diretorios com o nome passado (which firefox)
 passwd - muda a senha do usuario
 su - loga com o nuvo usuario
 adduser - cria usuarios(sudo adduser nico)
+useradd - cria usuarios
 env - mostra todas as variaves do programa
 PATH - SÃO AS VARIAVES LOCAIS DO PC AO INICIAR PROGRAMAS
 	@ PATH=$PATH:/home/enison/workspace (adicina uma pasta para a inicialização dos programas)
@@ -283,9 +290,26 @@ sort - ordena por alfabeto o arq.
 	@ sort -k 3 -t: -u -o == sobrescreve sem apagar arq 
 uniq - remove linhas repetidas em sequencia
 #!/bin/bash - faz o bash executar o programa
-
-
-
-
-
-
+source - faz um script rodar no shell atual
+$1 - é o primeiro argmento passado como parametro no comando
+$0 - é o caminho de execução do script
+$# - mostro o numero de argumentos passsados
+$* - mostra todos os argumentos passados
+--------------- estrutura de repetição em script -------------
+for ANO in 2016 2017
+do
+	echo "compa. os logs de ${ANO} em `pwd`"
+	find . -name "*log*" -name "${ANO}" | zip -@ ${HOME}/logs.zip | wc -l
+done
+--------------------------------------------------------------
+lsblk - lista os hds
+sudo fdisk /dev/nome_hd - entra no modo de configuração do novo hd/ssd
+sudo mkfd -t ext4 /dev/nome_hd - formata o hd para o formato ext4 - mais rapido para o linux
+sudo mount /dev/nome_hd /mnt/secundario - monta um hd novo na maquina
+sudo ummount /mnt/secundario - desmonta um hd montado
+cat /etc/fstab - mostra a lista de hds que vão ser montados na hora da innicializar a maquina
+usermod -a -G diretoria enison - adiciona o enison a um grupo secundario chamado diretoria
+sudo proupadd diretoria - cria um grupo chamado diretoria
+newgrp diretoria - define o grupo do usuario atual como principal
+ln nome_arq novo_nome - cria um link paraa onde vc quer
+	@ ln -s == cria um link fraco do arq passado
