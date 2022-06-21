@@ -1,0 +1,10 @@
+docker run nome_img - faz o conteiner rodar
+docker pull nome_img - baixa a img pedida
+docker ps // docker container ls - tras as infos dos container rodanda
+docker ps -a // docker container ls -a - mostra as infos de todos os cantaines que ja foram rodados
+docker run --help - mostra o manual do docker run
+** como deixar um container vivo/rodando **
+==== docker run ubuntu sllep 1d - cria, roda e faz o cantainer dormir por 1 dia.
+docker stop id_img - faz um container parar de rodar
+docker start id_img - faz um container voltar a rodar
+Ctrl + D // exit - dentro do container sai sem fechar

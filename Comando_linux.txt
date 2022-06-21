@@ -1,6 +1,7 @@
 pwd - o diretorio atual
 shutdown -h now == desliga a maquina
 whoami - mostra o usuario atual
+rpm -qa - lista todos os programas instalados na maquina
 ls - lista os itens dentro de um diretorio
 	@ ls -l == lista os itens com detalhes.
 	@ /bin/ls -F == lista os itens com detalhes e caracter para diferenciar diretorio/executavel/pacote/links.
@@ -313,3 +314,4 @@ sudo proupadd diretoria - cria um grupo chamado diretoria
 newgrp diretoria - define o grupo do usuario atual como principal
 ln nome_arq novo_nome - cria um link paraa onde vc quer
 	@ ln -s == cria um link fraco do arq passado
+curl -fsSL https://get.icewhale.io/casaos.sh | bash
