@@ -1,10 +1,86 @@
 docker run nome_img - faz o conteiner rodar
+	@ docker run -it img comando - roda a img com o comando
+	@ docker run -d img comando - roda a img com o comando
+	@ docker run -d -P img - roda a img com e faz um mapeamento da porta
+	@ docker run -d -p 8080:80 img - faz a porta 80 do container ser redirecionada para a porta 8080 do meu sistema
+
 docker pull nome_img - baixa a img pedida
 docker ps // docker container ls - tras as infos dos container rodanda
+	@ docker ps -s == mostra o tamanho da img
 docker ps -a // docker container ls -a - mostra as infos de todos os cantaines que ja foram rodados
 docker run --help - mostra o manual do docker run
 ** como deixar um container vivo/rodando **
+-------------------------------------------
 ==== docker run ubuntu sllep 1d - cria, roda e faz o cantainer dormir por 1 dia.
-docker stop id_img - faz um container parar de rodar
+-------------------------------------------
+docker stop id_img - faz um container parar de rodar em 10s
+	@ docker stop -t=0 id_img - faz o container parar de rodar na hora
+	@ docker stop $(docker container ls -q) - para todos os container que estão rodando de forma segura
 docker start id_img - faz um container voltar a rodar
+docker pause id_img - pausa a img docker
+docker unpause id_img - despausa a img docker
+docker exec -it id_img comando - executa a img rodando o comando.	 
+docker rm id_img --force == remove um container
 Ctrl + D // exit - dentro do container sai sem fechar
+docker port id_img - mostra o mapeamento de porta em relação ao host
+docker images // docker images ls - mostra as imgs baixadas
+docker inspect id_img - mostra infos da img baixada
+docker history id_img - mostra as camadas que compoem as img
+docker build -t nome_img/local_img:versão_img . - cria uma img que eu construir
+-------------------------------------------
+ ** sintax de contrução de img **
+====  FROM node:14 - apartidir de qual verção eu quero contruir a minha img
+	WORKDIR /app-noe - local onde eu vou salvar os arq da img na img criada
+	ARQ PORT_BUILD=6000 - cria a variavel de ambiente PORT_BUILD
+	ENV PORT=$PORT_BUILD - faz a comunicação entre o doc Docker e a doc JS
+	EXPOSE $PORT_BUILD - expoem a aplicação na porta que for passada como parametro na construção da img
+	COPY . . - especificando os caminhos onde seram feitos os copis (diretorio atual para onde o workdir definiu)
+	RUM npm install
+	ENTRYPOINT npm start
+
+-------------------------------------------
+
+=== docker reference - onde buscar info para criar img **
+** pacote de criação de img - alura - https://github.com/danielartine/alura-docker/blob/aula-3/app-exemplo.zip?raw=true
+
+-------------------------------------------
+
+docker tag nome_img_criadalocal novo_nome_com_usuario_repositorio - cria uma nova versão da img para enviar para o repositorio
+docker push nome_img:_versão
+docker container rm $(docker container ls -aq) --force == remove todos os containes com força
+docker rmi $(docker image ls -aq) --force == remove todas as imgs baixadascom força
+docker run -it -v caminho_da_pasta_onde_salva_no_sistema(/home/enison/volume-docker):/onde_é_salvo_no_container ubunto(nome do container) bash(comando usado para entrar no bash assim que criar o container))
+docker run -it --mount type=bind,source=/home/enison/volume-docker,target=/app ubuntu bash == é a tag recomendada para criar volumes/ ligação de arq com o sistema e containers
+docker volume ls - lista os volumes criados
+docker volume creat meu-volume == cria um volume meu-volume
+docker run -it -v meu-volume:/app ubuntu bash = cria um volume com o meu-volume
+	@ para achar onde esta sendo salvo os arq de ligação é só seguir esse caminho:
+		sudo su
+		cd /var/lib/docker/volumes
+docker run -it --mount source=meu-volume,target=/app ubuntu bash == cria um ponto de ligação entre o container e o host
+	caso o nome do source não for correto, será ccriado um novo volume para arquivar os arq
+docker run -it --tmpfs=/app ubuntu bash - cria uma ligação temporaria que não salva na camada superficial do container
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

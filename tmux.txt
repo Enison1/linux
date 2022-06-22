@@ -1,0 +1,13 @@
+tmux
+Ctrl + b - cria uma nova aba para o terminal 
+	@ Ctrl + b + 1 == vai para a aba 1
+	@ Ctrl + b + n == vai para a proxima aba
+	@ Ctrl + b + p == vai para a aba anterior
+ 	@ Ctrl + b + w == mostra a arvore de processos do tmux
+	@ Ctrl + b + d == encerar a sessão do tmux
+	@ Ctrl + b + % == divide o terminal ao meio (vertical)
+		@ Ctrl + b + setas == navega entre terminais divididos
+	@ Ctrl + b + " == divide o terminal ao meio (horizontal)
+tmux ls - mostra as sessões que foram salvas
+tmux a -t 0 - entra na seção salva que foi fechada
+exit - sai das abas e tmux.

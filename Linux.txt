@@ -1,4 +1,5 @@
 pwd - o diretorio atual
+Ctrl = r - busca comandos digitados
 shutdown -h now == desliga a maquina
 whoami - mostra o usuario atual
 rpm -qa - lista todos os programas instalados na maquina
