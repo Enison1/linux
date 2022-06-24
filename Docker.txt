@@ -60,7 +60,37 @@ docker run -it -v meu-volume:/app ubuntu bash = cria um volume com o meu-volume
 docker run -it --mount source=meu-volume,target=/app ubuntu bash == cria um ponto de ligação entre o container e o host
 	caso o nome do source não for correto, será ccriado um novo volume para arquivar os arq
 docker run -it --tmpfs=/app ubuntu bash - cria uma ligação temporaria que não salva na camada superficial do container
-
+docker network ls - lista as redes do docker
+docker network creat --driver bridge minha-bridge == cria uma rede em modo bridge com o nome minha-bridge
+docker run -it --name ubuntu1 --network minha-bridge ubuntu bash == cria um container com rede bridge minha-bridge
+apt-get install iputils-ping -y == instalando o ping sem pedir confirmação
+network none - não tem acesso a rede
+network host - tem a msm rede do host
+-------------------------------------------
+ ** sintax de contrução de compose **
+====  version: "3.9"
+	services:
+	  mongodb:
+	    image: mongo:4.4.6
+	    container_name: meu-mogo
+	    networks:
+		- compose-bridge
+	alurabooks:
+	    image: aluradocker/alura-books:1.0
+	    container_name: alurabooks
+	    networks:
+		- compose-bridge
+	    ports:
+		- 3000:3000
+	    depends_on:
+		- mongodb
+	networks:
+	  compose-bridge:
+	    driver: bridge
+-------------------------------------------
+docker-compose up -d == roda os containers que estão no script criado sem trava o terminal
+docker-compose ps - lista os containers rodando
+docker-compose down - remove todos os containers criados e tbm a rede
 
 
 
